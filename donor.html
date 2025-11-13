@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donor Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .dashboard-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .donation-form {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .donation-form h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #333;
+    }
+
+    .donation-form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .donation-form button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .donation-form button:hover {
+      background-color: #45a049;
+    }
+
+    .donation-history {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .donation-history h2 {
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .donation-history p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .logout-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 24px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header">
+      <h1>Donor Dashboard</h1>
+      <p>Welcome! Submit a donation and track your impact.</p>
+    </div>
+
+    <div class="donation-form">
+      <h2>Submit a Donation</h2>
+      <input id="itemName" type="text" placeholder="Item Name" />
+      <input id="quantity" type="number" placeholder="Quantity" />
+      <input id="address" type="text" placeholder="Pickup Address" />
+      <button onclick="submitDonation()">Submit Donation</button>
+    </div>
+
+    <div class="donation-history">
+      <h2>Your Donation History</h2>
+      <p>No donations yet. Once you submit, they’ll appear here.</p>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Firebase scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
