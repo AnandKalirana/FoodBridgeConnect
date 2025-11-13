@@ -123,17 +123,24 @@ function loadAcceptedDonations() {
     });
 }
 
-// ✅ Mark as Picked Up
 function markPickedUp(id) {
+  const user = auth.currentUser;
+  if (!user) {
+    alert("Please log in first.");
+    return;
+  }
+
   db.collection("donations").doc(id).update({
     status: "PickedUp",
-    pickedUpAt: new Date()
+    pickedUpAt: new Date(),
+    volunteerId: user.uid  // 🔐 Required for Firestore rule match
   })
   .then(() => {
     alert("Marked as Picked Up!");
   })
   .catch(err => alert("Error updating pickup status: " + err.message));
 }
+
 
 // ✅ Logout
 function logout() {
